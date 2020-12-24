@@ -33,7 +33,7 @@
     <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Explicit song recognizer</h3>
+  <h3 align="center">Explicit Song Recognizer</h3>
 
   <p align="center">
     Neural networks recognizing explicit songs in Spotify dataset
@@ -79,17 +79,13 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+This project was developed with Jan Babušík as a solution to the assignment from Neural networks master course. We decided to take Spotify dataset and create neural networks in Python, which can learn which songs from the dataset are explicit or not.
 
 ### Built With
 
-- []()
-- []()
-- []()
+- [Python](https://www.python.org/)
+- [Numpy](https://numpy.org/)
+- [Matplotlib](https://matplotlib.org/)
 
 <!-- GETTING STARTED -->
 
@@ -153,9 +149,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+- Martin Studna - martin.studna2@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+- Jan Babušík - email
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -168,15 +164,15 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/martin-studna/nn-explicit-song-recognizer.svg?style=for-the-badge
+[contributors-url]: https://github.com/martin-studna/nn-explicit-song-recognizer/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/martin-studna/nn-explicit-song-recognizer.svg?style=for-the-badge
+[forks-url]: https://github.com/martin-studna/nn-explicit-song-recognizer/network/members
+[stars-shield]: https://img.shields.io/github/stars/martin-studna/nn-explicit-song-recognizer.svg?style=for-the-badge
+[stars-url]: https://github.com/martin-studna/nn-explicit-song-recognizer/stargazers
+[issues-shield]: https://img.shields.io/github/issues/martin-studna/nn-explicit-song-recognizer.svg?style=for-the-badge
+[issues-url]: https://github.com/martin-studna/nn-explicit-song-recognizer/issues
+[license-shield]: https://img.shields.io/github/license/martin-studna/nn-explicit-song-recognizer.svg?style=for-the-badge
+[license-url]: https://github.com/martin-studna/nn-explicit-song-recognizer/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/martin-studna
