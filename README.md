@@ -30,7 +30,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://banner2.cleanpng.com/20181001/hbz/kisspng-computer-icons-portable-network-graphics-clip-art-the-kentucky-grasshoppers-veenhoop-festival-5bb20232f05e07.7661864415383926269846.jpg" alt="Logo" width="80" height="80">
+    <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Explicit song recognizer</h3>
