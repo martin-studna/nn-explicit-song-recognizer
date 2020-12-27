@@ -2,20 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import tensorflow as tf
-from sklearn.datasets import make_classification
-from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
 def sigmoid(x):
   return 1/(1+np.exp(-x))
 
 # Load data
-data = pd.read_csv("../data/data.csv")
-print(data)
+dataset = pd.read_csv("../data/data.csv")
+
 
 # === PREPROCESSING ===
 
 # Remove unnecessary data
-data = data.drop(['name'], axis=1)
+data = dataset.drop(['name'], axis=1)
 data = data.drop(['release_date'], axis=1)
 data = data.drop(['id'], axis=1)
 data = data.drop(['artists'], axis=1)
@@ -27,6 +27,8 @@ epochs = 10
 
 X = data.drop(['explicit'], axis=1).values
 Y = data['explicit'].values
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
 
 w = np.zeros(( ))
 
@@ -47,11 +49,13 @@ model.compile(
 
 tb_callback = tf.keras.callbacks.TensorBoard('true', update_freq=100, profile_batch=0)
 model.fit(
-    X, Y,
+    X_train, Y_train,
     batch_size=batch_size, epochs=epochs,
     callbacks=[tb_callback]
 )
 
+result = model.predict(X_test)
+print(result)
 
 # scaler = StandardScaler()
 # scaler.fit(X)
