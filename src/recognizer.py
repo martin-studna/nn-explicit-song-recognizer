@@ -5,60 +5,52 @@ import tensorflow as tf
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import seaborn as sns
+import argparse
 
- 
+"""
+
+
+
+"""
+
 batch_size = 100
 epochs = 100
  
 # Load data
 data = pd.read_csv("../data/data.csv")
 
-
- 
 # === PREPROCESSING ===
  
 # Remove unnecessary data
 data = data.drop(['name'], axis=1).drop(['release_date'], axis=1).drop(['id'], axis=1).drop(['artists'], axis=1)
 
-
-plt.figure(figsize=(16, 8))
-sns.set(style="whitegrid")
-corr = data.corr()
-sns.heatmap(corr,annot=True)
-plt.show()
-
-# normalize
+# Normalize
 min_max_scaler = preprocessing.MinMaxScaler()
 data = pd.DataFrame(min_max_scaler.fit_transform(data.values))
  
+# Show column names of the table.
 print(data.head())
  
+
+# All explicit data contains True in Explicit column. 
 explicit_data = data.values[np.where(data.values[:, 6] == 1)]
+# Non-explicit data contains False in Explicit column.
 non_explicit_data = data.values[np.where(data.values[:, 6] == 0)]
- 
+# Select same number of non-explicit data as explicit data. 
 non_explicit_data = non_explicit_data[0:len(explicit_data)]
- 
-print("explicit, nonexplicit")
-print(explicit_data.shape[0])
-print(non_explicit_data.shape[0])
- 
+
+
+# Devide explicit data on Training set and Test set. 
 explicit_train, explicit_test = train_test_split(explicit_data, test_size=0.2, random_state=1)
+# Devide non-explicit data on Training set and Test set.
 non_explicit_train, non_explicit_test = train_test_split(non_explicit_data, test_size=0.2, random_state=1)
  
-print("explicit train test, nonexplicit train test")
-print(explicit_train.shape[0])
-print(explicit_test.shape[0])
-print(non_explicit_train.shape[0])
-print(non_explicit_test.shape[0])
- 
+# Concatenate training data and test data.
 train = np.concatenate((explicit_train, non_explicit_train))
 test = np.concatenate((explicit_test, non_explicit_test))
+
 np.random.shuffle(train)
 np.random.shuffle(test)
- 
-print("train test")
-print(train.shape[0])
-print(test.shape[0])
  
 train = pd.DataFrame(train)
 test = pd.DataFrame(test)
@@ -103,12 +95,3 @@ sns.heatmap(conf_matrix, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
 print(result_Y)
- 
-# scaler = StandardScaler()
-# scaler.fit(X)
-# X = scaler.transform(X)
- 
-# plt.scatter(X[:, 0], X[:, 1], marker='o', c=Y,
-#             s=25, edgecolor='k')
- 
-# plt.show()
