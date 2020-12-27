@@ -5,8 +5,9 @@ import tensorflow as tf
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
-batch_size = 50
+batch_size = 100
 epochs = 10
+hidden_size = 100
 
 # Load data
 data = pd.read_csv("../data/data.csv")
@@ -60,8 +61,8 @@ test_Y = test[6].values
 
 # create model
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(14, activation=tf.nn.sigmoid, input_shape=(14,)),
-    tf.keras.layers.Dense(100, activation=tf.nn.sigmoid),
+    tf.keras.layers.Dense(train.shape[1], activation=tf.nn.sigmoid, input_shape=(14,)),
+    tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid),
     tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)
 ])
 
