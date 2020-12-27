@@ -9,9 +9,17 @@ def sigmoid(x):
   return 1/(1+np.exp(-x))
 
 
-
+# Load data
 data = pd.read_csv("../data/data.csv")
 print(data)
+
+
+# === PREPROCESSING ===
+
+# Remove unnecessary data
+data = data.drop(['name'], axis=1)
+data = data.drop(['release_date'], axis=1)
+data = data.drop(['id'], axis=1)
 
 
 X = data.drop(['explicit'], axis=1).values
