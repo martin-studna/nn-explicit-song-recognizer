@@ -59,49 +59,52 @@ train_Y = train[6].values
 test_X = test.drop([6], axis=1).values
 test_Y = test[6].values
 
-# create model
-model = tf.keras.Sequential([
+compute(train_X, train_Y, test_X, test_Y)
+
+def compute(train_X, train_Y, test_X, test_Y):
+  # create model
+  model = tf.keras.Sequential([
     tf.keras.layers.Dense(train.shape[1], activation=tf.nn.sigmoid, input_shape=(14,)),
     tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid),
     tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)
-])
+  ])
 
-model.compile(
+  model.compile(
     optimizer=tf.keras.optimizers.SGD(lr=0.05),
     loss="binary_crossentropy",
     metrics=["accuracy"],
-)
+  )
 
-# train
-tb_callback = tf.keras.callbacks.TensorBoard('true', update_freq=1000, profile_batch=0)
-model.fit(
+  # train
+  tb_callback = tf.keras.callbacks.TensorBoard('true', update_freq=1000, profile_batch=0)
+  model.fit(
     train_X, train_Y,
     batch_size=batch_size, epochs=epochs,
     callbacks=[tb_callback]
-)
+  )
 
-result = model.predict(test_X)
-result_Y = (result > 0.5).flatten()
+  result = model.predict(test_X)
+  result_Y = (result > 0.5).flatten()
 
-print(len(test_Y))
-print()
+  print(len(test_Y))
+  print()
 
-a = 0
-b = 0
-c = 0
-d = 0
+  a = 0
+  b = 0
+  c = 0
+  d = 0
 
-for i in range(len(test_Y)):
-  if (result_Y[i] == False and test_Y[i] == 0):
-    a += 1;
-  if (result_Y[i] == False and test_Y[i] == 1):
-    b += 1;
-  if (result_Y[i] == True and test_Y[i] == 0):
-    c += 1;
-  if (result_Y[i] == True and test_Y[i] == 1):
-    d += 1;
+  for i in range(len(test_Y)):
+    if (result_Y[i] == False and test_Y[i] == 0):
+      a += 1;
+    if (result_Y[i] == False and test_Y[i] == 1):
+      b += 1;
+    if (result_Y[i] == True and test_Y[i] == 0):
+      c += 1;
+    if (result_Y[i] == True and test_Y[i] == 1):
+      d += 1;
 
-print(a)
-print(b)
-print(c)
-print(d)
+  print(a)
+  print(b)
+  print(c)
+  print(d)
