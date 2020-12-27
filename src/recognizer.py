@@ -25,6 +25,8 @@ parser.add_argument("--seed", default=42, type=int, help="Random seed")
 parser.add_argument("--batch_size", default=100, type=int, help="Batch size")
 parser.add_argument("--test_size", default=0.2, type=lambda x: int(x) if x.isdigit() else float(x),
                     help="Test set size")
+parser.add_argument("--plot_conf", default=False, type=lambda x: int(x) if x.isdigit() else float(x),
+                    help="Test set size")
 
 """
     Plot confusion matrix method
@@ -36,7 +38,7 @@ def plot_conf_matrix(predictions, outputs):
         outputs, predictions)
 
 
-def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epochs, lr):
+def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epochs, lr, plot_conf):
     # Create model
     model = tf.keras.Sequential([
         tf.keras.layers.Dense(
@@ -64,7 +66,8 @@ def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epo
     predictions = (results > 0.5).flatten()
     outputs = (test_Y > 0.5).flatten()
 
-    plot_conf_matrix(predictions, outputs)
+    if (plot_conf):
+        plot_conf_matrix(predictions, outputs)
 
 
 def main(args):
@@ -116,7 +119,7 @@ def main(args):
     test_Y = test[explicit_column_index].values
 
     train_network(train_X, train_Y, test_X, test_Y,
-                  args.hidden_size, args.batch_size, args.epochs, args.lr)
+                  args.hidden_size, args.batch_size, args.epochs, args.lr, args.plot_conf)
 
 
 if __name__ == "__main__":
