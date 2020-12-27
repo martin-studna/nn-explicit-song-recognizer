@@ -20,6 +20,7 @@ print(data)
 data = data.drop(['name'], axis=1)
 data = data.drop(['release_date'], axis=1)
 data = data.drop(['id'], axis=1)
+data = data.drop(['artists'], axis=1)
 
 
 X = data.drop(['explicit'], axis=1).values
