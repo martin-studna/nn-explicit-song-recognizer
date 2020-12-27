@@ -6,6 +6,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import seaborn as sns
 import argparse
+import confusion_matrix_pretty_print
 
 """Explicit Song Recognizer Project
     
@@ -58,12 +59,15 @@ def conf_matrix_stats(result, test):
 
 
 def plot_conf_matrix(predictions, outputs):
+
     conf_matrix = tf.math.confusion_matrix(predictions, outputs)
+    confusion_matrix_pretty_print.plot_confusion_matrix_from_data(
+        outputs, predictions)
 
-    sns.set(font_scale=1.4)  # for label size
-    sns.heatmap(conf_matrix, annot=True, annot_kws={"size": 16})  # font size
+    # sns.set(font_scale=1.4)  # for label size
+    # sns.heatmap(conf_matrix, annot=True, annot_kws={"size": 16})  # font size
 
-    plt.show()
+    # plt.show()
 
 
 def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epochs, lr):
