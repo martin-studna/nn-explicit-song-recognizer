@@ -59,8 +59,6 @@ def conf_matrix_stats(result, test):
 
 
 def plot_conf_matrix(predictions, outputs):
-
-    conf_matrix = tf.math.confusion_matrix(predictions, outputs)
     confusion_matrix_pretty_print.plot_confusion_matrix_from_data(
         outputs, predictions)
 
