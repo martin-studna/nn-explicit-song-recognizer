@@ -25,7 +25,7 @@ parser.add_argument("--seed", default=42, type=int, help="Random seed")
 parser.add_argument("--batch_size", default=100, type=int, help="Batch size")
 parser.add_argument("--test_size", default=0.2, type=lambda x: int(x) if x.isdigit() else float(x),
                     help="Test set size")
-parser.add_argument("--plot_conf", default=False, type=lambda x: int(x) if x.isdigit() else float(x),
+parser.add_argument("--plot_conf", default=True, type=lambda x: int(x) if x.isdigit() else float(x),
                     help="Test set size")
 
 """
@@ -85,6 +85,9 @@ def main(args):
     min_max_scaler = preprocessing.MinMaxScaler()
     data = pd.DataFrame(min_max_scaler.fit_transform(data.values))
 
+    '''
+       First task - same number of positive and negative examples
+    '''
     # All explicit data contains True in Explicit column.
     explicit_data = data.values[np.where(
         data.values[:, explicit_column_index] == 1)]
@@ -119,8 +122,21 @@ def main(args):
     test_Y = test[explicit_column_index].values
 
     train_network(train_X, train_Y, test_X, test_Y,
-                  args.hidden_size, args.batch_size, args.epochs, args.lr, args.plot_conf)
+        args.hidden_size, args.batch_size, args.epochs, args.lr, args.plot_conf)
 
+    '''
+        Second task - with all data - 8.5% negative examples
+    '''
+    train, test = train_test_split(data, test_size=args.test_size, random_state=args.seed)
+
+    train_X = train.drop(explicit_column_index, axis=1).values
+    train_Y = train[explicit_column_index].values
+
+    test_X = test.drop([explicit_column_index], axis=1).values
+    test_Y = test[explicit_column_index].values
+
+    train_network(train_X, train_Y, test_X, test_Y,
+        args.hidden_size, args.batch_size, args.epochs, args.lr, args.plot_conf)
 
 if __name__ == "__main__":
     args = parser.parse_args([] if "__file__" not in globals() else None)
