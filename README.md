@@ -85,10 +85,10 @@ This project was developed with Jan Babušík as a solution to the assignment fr
 - [Python](https://www.python.org/)
 - [Numpy](https://numpy.org/)
 - [Matplotlib](https://matplotlib.org/)
-- [Tensorflow]
-- [Pandas]
-- [Seaborn]
-- [Sklearn]
+- [Tensorflow](https://www.tensorflow.org/)
+- [Pandas](https://pandas.pydata.org/)
+- [Seaborn](https://seaborn.pydata.org/)
+- [Sklearn](https://scikit-learn.org/)
 
 <!-- GETTING STARTED -->
 
