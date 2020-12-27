@@ -76,7 +76,7 @@
 
 ## About The Project
 
-This project was developed with Jan Babušík as a solution to the assignment from Neural networks master course. We decided to take Spotify dataset and create neural networks in Python, which can learn which songs from the dataset are explicit or not.
+This project was developed with Jan Babušík as a solution to the semester project from Neural networks master course. We decided to take Spotify dataset and create neural networks in Python, which can learn which songs from the dataset are explicit or not.
 
 ### Built With
 
