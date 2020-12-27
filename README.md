@@ -151,7 +151,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - Martin Studna - martin.studna2@gmail.com
 
-- Jan Babušík - email
+- Jan Babušík - qwak623@gmail.com
 
 <!-- ACKNOWLEDGEMENTS -->
 
