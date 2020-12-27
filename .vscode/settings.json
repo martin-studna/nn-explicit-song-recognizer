@@ -1,4 +1,4 @@
 {
   "python.linting.pylintEnabled": true,
-  "python.pythonPath": "${workspaceFolder}/venv/python3"
+  "python.pythonPath": "/Users/cetis/miniconda3/bin/python"
 }
