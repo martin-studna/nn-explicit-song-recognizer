@@ -6,7 +6,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
 batch_size = 50
-epochs = 5
+epochs = 10
 
 # Load data
 data = pd.read_csv("../data/data.csv")
@@ -56,7 +56,7 @@ train_X = train.drop(6, axis=1).values
 train_Y = train[6].values
 
 test_X = test.drop([6], axis=1).values
-text_Y = test[6].values
+test_Y = test[6].values
 
 # create model
 model = tf.keras.Sequential([
@@ -82,14 +82,25 @@ model.fit(
 result = model.predict(test_X)
 result_Y = (result > 0.5).flatten()
 
-print(result)
-print(result_Y)
+print(len(test_Y))
+print()
 
-# scaler = StandardScaler()
-# scaler.fit(X)
-# X = scaler.transform(X)
+a = 0
+b = 0
+c = 0
+d = 0
 
-# plt.scatter(X[:, 0], X[:, 1], marker='o', c=Y,
-#             s=25, edgecolor='k')
+for i in range(len(test_Y)):
+  if (result_Y[i] == False and test_Y[i] == 0):
+    a += 1;
+  if (result_Y[i] == False and test_Y[i] == 1):
+    b += 1;
+  if (result_Y[i] == True and test_Y[i] == 0):
+    c += 1;
+  if (result_Y[i] == True and test_Y[i] == 1):
+    d += 1;
 
-# plt.show()
+print(a)
+print(b)
+print(c)
+print(d)
