@@ -64,7 +64,6 @@ def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epo
     predictions = (results > 0.5).flatten()
     outputs = (test_Y > 0.5).flatten()
 
-    conf_matrix_stats(predictions, outputs)
     plot_conf_matrix(predictions, outputs)
 
 
