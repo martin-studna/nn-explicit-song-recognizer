@@ -4,18 +4,29 @@ import pandas as pd
 import tensorflow as tf
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
+import seaborn as sns
+
  
 batch_size = 100
 epochs = 100
  
 # Load data
 data = pd.read_csv("../data/data.csv")
+
+
  
 # === PREPROCESSING ===
  
 # Remove unnecessary data
 data = data.drop(['name'], axis=1).drop(['release_date'], axis=1).drop(['id'], axis=1).drop(['artists'], axis=1)
- 
+
+
+plt.figure(figsize=(16, 8))
+sns.set(style="whitegrid")
+corr = data.corr()
+sns.heatmap(corr,annot=True)
+plt.show()
+
 # normalize
 min_max_scaler = preprocessing.MinMaxScaler()
 data = pd.DataFrame(min_max_scaler.fit_transform(data.values))
@@ -56,7 +67,7 @@ train_X = train.drop(6, axis=1).values
 train_Y = train[6].values
  
 test_X = test.drop([6], axis=1).values
-text_Y = test[6].values
+test_Y = test[6].values
  
 #train_X = np.delete(train, 6, axis=1)
 #train_Y = values[:, 6]
@@ -85,6 +96,12 @@ model.fit(
 result = model.predict(test_X)
 result_Y = (result > 0.5).flatten()
  
+conf_matrix = tf.math.confusion_matrix((test_Y > 0.5).flatten(), result_Y)
+
+sns.set(font_scale=1.4) # for label size
+sns.heatmap(conf_matrix, annot=True, annot_kws={"size": 16}) # font size
+
+plt.show()
 print(result_Y)
  
 # scaler = StandardScaler()
