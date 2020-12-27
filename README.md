@@ -102,7 +102,7 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/martin-studna/nn-explicit-song-recognizer.git
    ```
-2. Install NPM packages
+2. Install dependencies
    ```sh
    pip3 install -r requirements.txt
    ```
