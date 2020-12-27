@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/martin-studna/nn-explicit-song-recognizer">
     <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="Logo" width="100" height="100">
   </a>
 
@@ -38,14 +38,13 @@
   <p align="center">
     Neural networks recognizing explicit songs in Spotify dataset
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/martin-studna/nn-explicit-song-recognizer">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/martin-studna/nn-explicit-song-recognizer/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/martin-studna/nn-explicit-song-recognizer/issues">Request Feature</a>
   </p>
 </p>
 
@@ -86,6 +85,10 @@ This project was developed with Jan Babušík as a solution to the assignment fr
 - [Python](https://www.python.org/)
 - [Numpy](https://numpy.org/)
 - [Matplotlib](https://matplotlib.org/)
+- [Tensorflow]
+- [Pandas]
+- [Seaborn]
+- [Sklearn]
 
 <!-- GETTING STARTED -->
 
@@ -93,24 +96,15 @@ This project was developed with Jan Babušík as a solution to the assignment fr
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/martin-studna/nn-explicit-song-recognizer.git
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   pip3 install -r requirements.txt
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -125,7 +119,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/martin-studna/nn-explicit-song-recognizer/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -154,12 +148,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Jan Babušík - email
 
 <!-- ACKNOWLEDGEMENTS -->
-
-## Acknowledgements
-
-- []()
-- []()
-- []()
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
