@@ -40,8 +40,6 @@
     <br />
     <br />
     <br />
-    <a href="https://github.com/martin-studna/nn-explicit-song-recognizer">View Demo</a>
-    ·
     <a href="https://github.com/martin-studna/nn-explicit-song-recognizer/issues">Report Bug</a>
     ·
     <a href="https://github.com/martin-studna/nn-explicit-song-recognizer/issues">Request Feature</a>
@@ -111,15 +109,23 @@ To get a local copy up and running follow these simple steps.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Example:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+```sh
+   python3 recognizer.py
+```
 
-<!-- ROADMAP -->
+Optional paramters:
 
-## Roadmap
-
-See the [open issues](https://github.com/martin-studna/nn-explicit-song-recognizer/issues) for a list of proposed features (and known issues).
+```sh
+  --epochs          Number of epochs for training
+  --lr              Learning rate
+  --hidden_size     Size of the hidden layer
+  --seed            Random seed
+  --batch_size      Batch size
+  --test_size       Size of the test set
+  --plot_conf       Plot confusion matrix
+```
 
 <!-- CONTRIBUTING -->
 
