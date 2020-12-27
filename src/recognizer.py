@@ -70,7 +70,7 @@ def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epo
     # Create model
     model = tf.keras.Sequential([
         tf.keras.layers.Dense(
-            train_X.shape[1], activation=tf.nn.sigmoid, input_shape=(14,)),
+            train_X.shape[1], activation=tf.nn.sigmoid, input_shape=(train_X.shape[1],)),
         tf.keras.layers.Dense(hidden_size, activation=tf.nn.sigmoid),
         tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)
     ])
@@ -114,9 +114,11 @@ def main(args):
     data = pd.DataFrame(min_max_scaler.fit_transform(data.values))
 
     # All explicit data contains True in Explicit column.
-    explicit_data = data.values[np.where(data.values[:, 6] == 1)]
+    explicit_data = data.values[np.where(
+        data.values[:, explicit_column_index] == 1)]
     # Non-explicit data contains False in Explicit column.
-    non_explicit_data = data.values[np.where(data.values[:, 6] == 0)]
+    non_explicit_data = data.values[np.where(
+        data.values[:, explicit_column_index] == 0)]
     # Select same number of non-explicit data as explicit data.
     non_explicit_data = non_explicit_data[0:len(explicit_data)]
 
