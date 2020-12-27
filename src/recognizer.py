@@ -27,33 +27,6 @@ parser.add_argument("--test_size", default=0.2, type=lambda x: int(x) if x.isdig
                     help="Test set size")
 
 """
-    Confusion matrix statistics
-"""
-
-
-def conf_matrix_stats(result, test):
-    a = 0
-    b = 0
-    c = 0
-    d = 0
-
-    for i in range(len(test)):
-        if (result[i] == False and test[i] == 0):
-            a += 1
-        if (result[i] == False and test[i] == 1):
-            b += 1
-        if (result[i] == True and test[i] == 0):
-            c += 1
-        if (result[i] == True and test[i] == 1):
-            d += 1
-
-    print(a)
-    print(b)
-    print(c)
-    print(d)
-
-
-"""
     Plot confusion matrix method
 """
 
@@ -61,11 +34,6 @@ def conf_matrix_stats(result, test):
 def plot_conf_matrix(predictions, outputs):
     confusion_matrix_pretty_print.plot_confusion_matrix_from_data(
         outputs, predictions)
-
-    # sns.set(font_scale=1.4)  # for label size
-    # sns.heatmap(conf_matrix, annot=True, annot_kws={"size": 16})  # font size
-
-    # plt.show()
 
 
 def train_network(train_X, train_Y, test_X, test_Y, hidden_size, batch_size, epochs, lr):
