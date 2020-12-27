@@ -11,8 +11,6 @@ import argparse
     
     Martin Studna
     Jan Babušík
-
-
 """
 
 
@@ -105,11 +103,11 @@ def main(args):
     # Load data Spotify dataset
     data = pd.read_csv("../data/data.csv")
 
-    # === PREPROCESSING ===
-
     # Remove unnecessary data
     data = data.drop(['name', 'release_date', 'id',
                       'artists'], axis=1)
+
+    explicit_column_index = data.columns.get_loc("explicit")
 
     # Normalize data
     min_max_scaler = preprocessing.MinMaxScaler()
@@ -140,11 +138,11 @@ def main(args):
     train = pd.DataFrame(train)
     test = pd.DataFrame(test)
 
-    train_X = train.drop(6, axis=1).values
-    train_Y = train[6].values
+    train_X = train.drop(explicit_column_index, axis=1).values
+    train_Y = train[explicit_column_index].values
 
-    test_X = test.drop([6], axis=1).values
-    test_Y = test[6].values
+    test_X = test.drop([explicit_column_index], axis=1).values
+    test_Y = test[explicit_column_index].values
 
     train_network(train_X, train_Y, test_X, test_Y,
                   args.hidden_size, args.batch_size, args.epochs, args.lr)
